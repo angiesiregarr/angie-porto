@@ -1,0 +1,227 @@
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #000;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-image: url('./images/cover-page.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 2;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: -200px;
+}
+
+.title {
+    font-size: 6.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #AF4C9E, #E47056, #E476B4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(128, 128, 128, 0.3);
+}
+
+.name {
+    font-size: 3rem;
+    color: #fff;
+    font-weight: 500;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    /* margin-bottom: rem; */
+}
+
+.description {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    margin-bottom: 4rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+    
+    .name {
+        font-size: 1.5rem;
+    }
+}
+
+/* Overview Section */
+.overview {
+    min-height: 100vh;
+    background-color: #000;
+    padding: 72px 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+.overview-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-label {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.project-title {
+    font-size: 4rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, #E47056, #E476B4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 4rem;
+    line-height: 1.2;
+}
+
+.overview-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.overview-text {
+    position: relative;
+}
+
+.problem, .role {
+    margin-bottom: 2rem;
+}
+
+.process {
+    position: absolute;
+    left: 0;
+    right: -100%;
+    width: 200%;
+}
+
+.process-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 2rem;
+}
+
+.tag {
+    background: rgba(228, 112, 86, 0.09);
+    border: 1px solid rgba(228, 112, 86, 0.3);
+    border-radius: 24.5px;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    white-space: nowrap;
+}
+
+.tag span {
+    background: radial-gradient(
+        circle at top right,
+        #FF8282 0%,
+        #F9DD7C 7.29%,
+        #FD8F8C 75.49%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 500;
+    text-transform: lowercase;
+    position: relative;
+    z-index: 1;
+}
+.overview-text h3 {
+    font-size: 2rem;
+    background: linear-gradient(45deg, #E47056, #E476B4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1.5rem;
+}
+
+.overview-text p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.overview-images {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    align-self: start;
+}
+
+.mockup {
+    width: 600px;
+    max-width: 800px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.25));
+}
+
+@media (max-width: 1200px) {
+    .overview-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .mockup {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .overview {
+        padding: 40px 20px;
+    }
+
+    .project-title {
+        font-size: 2.5rem;
+    }
+
+    .mockup {
+        margin-top: 2rem;
+    }
+
+    .overview-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .process {
+        position: relative;
+        width: 100%;
+        right: 0;
+    }
+} 
