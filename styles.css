@@ -30,15 +30,15 @@ body {
     text-align: center;
     position: relative;
     z-index: 2;
-    padding-bottom: 100px;
+    padding: 20px;
 }
 
 .hero h1 {
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 24px;
     align-items: center;
-    margin-top: -100px;
+    margin-bottom: 200px;
 }
 
 .gradient-text {
@@ -52,20 +52,6 @@ body {
     line-height: 1;
     letter-spacing: -2px;
     text-align: center;
-    position: relative;
-    animation: titleFloat 3s ease-in-out infinite;
-    text-shadow: 0 0 20px rgba(228, 112, 86, 0.3);
-}
-
-/* Efek hover dengan glow */
-.gradient-text:hover {
-    animation-play-state: paused;
-    background: linear-gradient(45deg, #E476B4, #E47056, #E476B4);
-    background-size: 200% auto;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: gradientShift 2s linear infinite;
-    text-shadow: 0 0 30px rgba(228, 112, 86, 0.5);
 }
 
 .name {
@@ -74,35 +60,6 @@ body {
     font-weight: 400;
     letter-spacing: 1px;
     text-align: center;
-    opacity: 0.9;
-    transform: translateY(0);
-    transition: all 0.3s ease;
-}
-
-.name:hover {
-    opacity: 1;
-    transform: translateY(-5px);
-    text-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
-}
-
-/* Animasi floating untuk title */
-@keyframes titleFloat {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-/* Animasi gradient shift */
-@keyframes gradientShift {
-    0% {
-        background-position: 0% center;
-    }
-    100% {
-        background-position: 200% center;
-    }
 }
 
 .hero-background {
@@ -111,7 +68,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 2000px;
+    max-width: 1200px;
     z-index: 1;
 }
 
@@ -119,7 +76,7 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    max-height: 100vh;
+    max-height: 45vh;
     object-fit: contain;
     object-position: bottom;
 }
@@ -392,7 +349,29 @@ body {
     }
 
     .overview-content {
-        padding: 0 24px;
+        padding: 20px;
+        justify-content: flex-start;
+        padding-top: 100px;
+    }
+
+    .hero h1 {
+        margin-bottom: 160px;
+        gap: 16px;
+    }
+
+    .gradient-text {
+        font-size: 48px;
+        letter-spacing: -1px;
+        line-height: 1.2;
+    }
+    
+    .name {
+        font-size: 24px;
+        letter-spacing: 0.5px;
+    }
+
+    .hero-background img {
+        max-height: 35vh;
     }
 
     .project-title {
@@ -427,13 +406,20 @@ body {
         font-size: 13px;
     }
 
-    .gradient-text {
-        font-size: 60px;
-        letter-spacing: -1px;
+    .process-samples-content {
+        padding: 0 24px;
     }
-    
-    .name {
-        font-size: 28px;
+
+    .process-samples .project-title {
+        font-size: 40px;
+    }
+
+    .samples-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sample-image {
+        height: 300px;
     }
 }
 
@@ -471,23 +457,55 @@ body {
     }
 
     .gradient-text {
-        font-size: 40px;
+        font-size: 36px;
         letter-spacing: -0.5px;
     }
     
     .name {
-        font-size: 24px;
+        font-size: 20px;
         letter-spacing: 0.5px;
+    }
+
+    .hero-content {
+        padding: 16px;
+        padding-top: 80px;
+    }
+
+    .hero h1 {
+        margin-bottom: 140px;
+        gap: 12px;
+    }
+
+    .hero-background img {
+        max-height: 30vh;
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 375px) {
+    .hero-content {
+        padding-top: 60px;
+    }
+
+    .hero h1 {
+        margin-bottom: 120px;
+    }
+
     .gradient-text {
         font-size: 32px;
     }
     
     .name {
-        font-size: 20px;
+        font-size: 18px;
+    }
+}
+
+@media (min-height: 800px) and (max-width: 480px) {
+    .hero-content {
+        padding-top: 120px;
+    }
+
+    .hero h1 {
+        margin-bottom: 180px;
     }
 }
 
