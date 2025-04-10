@@ -21,7 +21,7 @@ body {
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .hero-content {
@@ -29,13 +29,13 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     text-align: center;
     position: relative;
     z-index: 2;
     padding: 20px;
-    padding-top: 15vh;
-    gap: 16px;
+    padding-top: 10vh;
+    gap: 12px;
 }
 
 .hero h1 {
@@ -56,7 +56,7 @@ body {
     text-transform: uppercase;
     line-height: 1;
     letter-spacing: -2px;
-    text-align: center;
+    margin: 0;
 }
 
 .name {
@@ -79,7 +79,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 3000px;
+    max-width: 100%;
     z-index: 1;
 }
 
@@ -87,7 +87,7 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    max-height: 2020vh;
+    max-height: 40vh;
     object-fit: cover;
     object-position: bottom;
 }
@@ -122,9 +122,65 @@ body {
     .title {
         font-size: 3rem;
     }
-
+    
     .name {
         font-size: 1.5rem;
+    }
+
+    .hero-content {
+        padding-top: 8vh;
+    }
+
+    .gradient-text {
+        font-size: 48px;
+        letter-spacing: -1px;
+    }
+
+    .subtitle {
+        font-size: 20px;
+        height: auto;
+        margin-top: 8px;
+    }
+
+    .hero h1 {
+        margin-bottom: 0;
+    }
+
+    .hero-background img {
+        max-height: 35vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content {
+        padding-top: 6vh;
+    }
+
+    .gradient-text {
+        font-size: 36px;
+        letter-spacing: -0.5px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+
+    .hero-background img {
+        max-height: 30vh;
+    }
+}
+
+@media (max-width: 375px) {
+    .hero-content {
+        padding-top: 4vh;
+    }
+
+    .gradient-text {
+        font-size: 32px;
+    }
+
+    .subtitle {
+        font-size: 14px;
     }
 }
 
