@@ -19,18 +19,23 @@ body {
     background-color: #000;
     position: relative;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .hero-content {
     width: 100%;
-    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
     position: relative;
     z-index: 2;
     padding: 20px;
+    padding-top: 15vh;
+    gap: 16px;
 }
 
 .hero h1 {
@@ -38,16 +43,16 @@ body {
     flex-direction: column;
     gap: 24px;
     align-items: center;
-    margin-bottom: 200px;
+    margin-bottom: 1vh;
 }
 
 .gradient-text {
     font-size: 120px;
     font-weight: 700;
-    background: linear-gradient(45deg, #E476B4, #E47056);
+    background: linear-gradient(45deg, #AF4C9E, #E47056, #E476B4);
     -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: transparent;
     text-transform: uppercase;
     line-height: 1;
     letter-spacing: -2px;
@@ -60,6 +65,12 @@ body {
     font-weight: 400;
     letter-spacing: 1px;
     text-align: center;
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(40) infinite;
 }
 
 .hero-background {
@@ -68,7 +79,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 1200px;
+    max-width: 3000px;
     z-index: 1;
 }
 
@@ -76,8 +87,8 @@ body {
     width: 100%;
     height: auto;
     display: block;
-    max-height: 45vh;
-    object-fit: contain;
+    max-height: 2020vh;
+    object-fit: cover;
     object-position: bottom;
 }
 
@@ -760,3 +771,360 @@ body {
     line-height: 1.8;
     max-width: 600px;
 }
+
+/* Menghapus hover effect */
+.gradient-text:hover {
+    animation: none;
+    background: linear-gradient(45deg, #AF4C9E, #E47056, #E476B4);
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/* Menghapus keyframe yang tidak digunakan */
+@keyframes titleFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+@keyframes typing {
+    0% {
+        width: 0;
+    }
+    50%, 100% {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Cursor effect */
+.name::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: blink 0.2s infinite;
+}
+
+/* Subtitle Container */
+.subtitle-container {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    align-items: center;
+}
+
+/* Nama */
+.name {
+    font-size: 32px;
+    color: #F9F7F8;
+    font-weight: 400;
+    letter-spacing: 1px;
+    text-align: center;
+    position: relative;
+    width: fit-content;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing1 2s steps(40);
+}
+
+/* Deskripsi */
+.description {
+    font-size: 18px;
+    color: rgba(249, 247, 248, 0.8);
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    text-align: center;
+    position: relative;
+    width: fit-content;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing2 2s steps(40);
+    animation-delay: 2s; /* Mulai setelah nama selesai */
+    opacity: 0;
+    animation-fill-mode: forwards;
+}
+
+/* Cursor effects */
+.name::after,
+.description::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: blink 0.2s infinite;
+}
+
+/* Animations */
+@keyframes typing1 {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes typing2 {
+    0% {
+        width: 0;
+        opacity: 0;
+    }
+    1% {
+        opacity: 1;
+    }
+    100% {
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .name {
+        font-size: 24px;
+    }
+    
+    .description {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .name {
+        font-size: 20px;
+    }
+    
+    .description {
+        font-size: 14px;
+    }
+}
+
+/* Untuk layar sangat kecil */
+@media screen and (max-width: 375px) {
+    .name {
+        font-size: 18px;
+    }
+    
+    .description {
+        font-size: 12px;
+    }
+}
+
+.typing-container {
+    font-size: 24px;
+    color: #F9F7F8;
+    display: block;
+    text-align: center;
+    height: 30px; /* Fixed height untuk menghindari lompatan */
+    position: relative;
+    margin-top: 24px;
+}
+
+.typing-text {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+}
+
+.typing-text:first-child {
+    display: block;
+    animation: 
+        typing 2s steps(20),
+        removeName 0s 2s forwards;
+}
+
+.typing-text:last-child {
+    animation: 
+        showDescription 0s 2s forwards,
+        typing 1s steps(60) 2s;
+}
+
+/* Cursor effect */
+.typing-container::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: blink 0.1s infinite;
+}
+
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+@keyframes removeName {
+    to {
+        display: none;
+    }
+}
+
+@keyframes showDescription {
+    to {
+        display: block;
+    }
+}
+
+@keyframes blink {
+    50% { opacity: 0 }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .typing-container {
+        font-size: 20px;
+        height: 26px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .typing-container {
+        font-size: 16px;
+        height: 22px;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .typing-container {
+        font-size: 14px;
+        height: 10px;
+    }
+}
+
+.typewriter-container {
+    margin-top: 24px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.typewriter {
+    color: #F9F7F8;
+    font-size: 32;
+    position: relative;
+    justify-content: center;
+    width: fit-content;
+}
+
+/* Add this script tag at the end of your body tag */
+/* <script>
+const typewriter = document.getElementById('typewriter');
+const text1 = "My name is Carmelita Angelica";
+const text2 = "I'm a UI/UX Designer passionate about creating meaningful experiences";
+
+let currentText = '';
+let letterIndex = 0; */
+
+/* // Function to type text
+function typeText(text, callback) {
+    if (letterIndex < text.length) {
+        currentText += text.charAt(letterIndex);
+        typewriter.textContent = currentText + '|';
+        letterIndex++;
+        setTimeout(() => typeText(text, callback), 100);
+    } else {
+        if (callback) setTimeout(callback, 2000);
+    }
+}
+
+// Function to delete text
+function deleteText(callback) {
+    if (currentText.length > 0) {
+        currentText = currentText.slice(0, -1);
+        typewriter.textContent = currentText + '|';
+        setTimeout(() => deleteText(callback), 50);
+    } else {
+        letterIndex = 0;
+        if (callback) callback();
+    }
+}
+
+// Start the animation sequence
+function startTyping() {
+    typeText(text1, () => {
+        deleteText(() => {
+            typeText(text2);
+        })
+    })
+}
+
+// Start the animation when the page loads
+window.onload = startTyping;
+</script> */
+
+.subtitle {
+    font-size: 32px;
+    color: #F9F7F8;
+    width: 100%;
+    text-align: center;
+    height: 40px;
+}
+
+.typing-text {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 3s steps(30);
+    width: 0;
+    margin: 0 auto;
+}
+
+.typing-text::after {
+    content: '|';
+    position: absolute;
+    right: -8px;
+    animation: blink 0.8s infinite;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    .subtitle {
+        font-size: 28px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .subtitle {
+        font-size: 24px;
+    }
+}
+

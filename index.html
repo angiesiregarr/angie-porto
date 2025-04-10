@@ -18,10 +18,10 @@
 <body>
     <section class="hero">
         <div class="hero-content">
-            <h1>
-                <span class="gradient-text">UI/UX PORTFOLIO</span>
-                <span class="name">CARMELITA ANGELICA</span>
-            </h1>
+            <h1 class="gradient-text">UI/UX PORTFOLIO</h1>
+            <div class="subtitle">
+                <span id="typewriter">My name is Carmelita Angelica</span>
+            </div>
         </div>
         <div class="hero-background">
             <img src="./images/cover-page.png" alt="Macbook with gradient colors">
@@ -103,5 +103,46 @@
             </div>
         </div>
     </section>
+
+    <script>
+    const typewriter = document.getElementById('typewriter');
+    const text1 = "My name is Carmelita Angelica.";
+    const text2 = "I'm a UI/UX Designer passionate about creating meaningful experiences.";
+
+    let currentText = '';
+    let letterIndex = 0;
+
+    function typeText(text, callback) {
+        if (letterIndex < text.length) {
+            currentText += text.charAt(letterIndex);
+            typewriter.textContent = currentText + '|';
+            letterIndex++;
+            setTimeout(() => typeText(text, callback), 100);
+        } else {
+            if (callback) setTimeout(callback, 2000);
+        }
+    }
+
+    function deleteText(callback) {
+        if (currentText.length > 0) {
+            currentText = currentText.slice(0, -1);
+            typewriter.textContent = currentText + '|';
+            setTimeout(() => deleteText(callback), 50);
+        } else {
+            letterIndex = 0;
+            if (callback) callback();
+        }
+    }
+
+    function startTyping() {
+        typeText(text1, () => {
+            deleteText(() => {
+                typeText(text2);
+            });
+        });
+    }
+
+    window.onload = startTyping;
+    </script>
 </body>
 </html> 
